@@ -38,9 +38,24 @@ return {
     -- Setup mason-lspconfig with the new API (remove automatic_enable)
     require("mason-lspconfig").setup({
       ensure_installed = {
-        "lua_ls", "pyright", "ts_ls", "rust_analyzer",
-        "gopls", "clangd", "tailwindcss", "eslint", "jsonls"
-      },
+        -- Language support
+        "lua_ls",        -- Lua
+        "pyright",       -- Python
+        "ts_ls",         -- TypeScript/JavaScript
+        "rust_analyzer", -- Rust
+        "gopls",         -- Go
+        "clangd",        -- C/C++
+        "bashls",        -- Bash
+        "clojure_lsp",   -- Clojure (Lisp)
+
+        -- Web & config languages
+        "html",        -- HTML
+        "cssls",       -- CSS
+        "tailwindcss", -- Tailwind CSS
+        "eslint",      -- Linting for JS/TS
+        "jsonls",      -- JSON
+      }
+      ,
       automatic_installation = true,
       -- Remove automatic_enable - it's deprecated in v2
       handlers = {
