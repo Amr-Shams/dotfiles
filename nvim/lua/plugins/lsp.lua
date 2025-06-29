@@ -108,7 +108,7 @@ return {
         map("K", vim.lsp.buf.hover, "Hover Documentation")
 
         -- Diagnostics
-        map("<leader>e", vim.diagnostic.open_float, "Show line diagnostics")
+        map("<leader>b", vim.diagnostic.open_float, "Show line diagnostics")
         map("<C-]>", vim.diagnostic.goto_prev, "Go to previous diagnostic")
         map("<C-[>", vim.diagnostic.goto_next, "Go to next diagnostic")
         map("<leader>q", vim.diagnostic.setloclist, "Open diagnostics list")
