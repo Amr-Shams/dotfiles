@@ -54,6 +54,7 @@ return {
         "tailwindcss", -- Tailwind CSS
         "eslint",      -- Linting for JS/TS
         "jsonls",      -- JSON
+        "sqls",
       }
       ,
       automatic_installation = true,
