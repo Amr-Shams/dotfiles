@@ -64,6 +64,7 @@ return {
   -- Which-key for keybind hints
   {
     "folke/which-key.nvim",
+    dependencies = { "echasnovski/mini.icons" },
     event = "VeryLazy",
     init = function()
       vim.o.timeout = true
@@ -78,18 +79,12 @@ return {
       local wk = require("which-key")
       wk.setup(opts)
 
-      -- Add your key group descriptions using the new format
       wk.add({
-        { "<leader>c",  group = "Code" },
-        { "<leader>c_", hidden = true },
-        { "<leader>d",  group = "Document" },
-        { "<leader>d_", hidden = true },
-        { "<leader>r",  group = "Rename" },
-        { "<leader>r_", hidden = true },
-        { "<leader>s",  group = "Search" },
-        { "<leader>s_", hidden = true },
-        { "<leader>w",  group = "Workspace" },
-        { "<leader>w_", hidden = true },
+        { "<leader>c", group = "Code" },
+        { "<leader>d", group = "Document" },
+        { "<leader>r", group = "Rename" },
+        { "<leader>s", group = "Search" },
+        { "<leader>w", group = "Workspace" },
       })
     end,
   },

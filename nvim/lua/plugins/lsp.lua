@@ -3,10 +3,14 @@ return {
   dependencies = {
     "williamboman/mason.nvim",
     "williamboman/mason-lspconfig.nvim",
-    "hrsh7th/cmp-nvim-lsp",
   },
   config = function()
-    local capabilities = require("cmp_nvim_lsp").default_capabilities()
+    local capabilities = vim.lsp.protocol.make_client_capabilities()
+    local has_blink, blink = pcall(require, "blink.cmp")
+    if has_blink then
+      capabilities = blink.get_lsp_capabilities(capabilities)
+    end
+
 
     -- Configure LSP diagnostics to show warnings
     vim.diagnostic.config({
@@ -92,26 +96,20 @@ return {
           vim.keymap.set("n", keys, func, { buffer = event.buf, desc = "LSP: " .. desc })
         end
 
-        -- Navigation
-        map("gd", require("telescope.builtin").lsp_definitions, "Goto Definition")
-        map("gr", require("telescope.builtin").lsp_references, "Goto References")
-        map("gI", require("telescope.builtin").lsp_implementations, "Goto Implementation")
-        map("<leader>D", require("telescope.builtin").lsp_type_definitions, "Type Definition")
+        map("gd", vim.lsp.buf.definition, "Goto Definition")
+        map("gr", vim.lsp.buf.references, "Goto References")
+        map("gI", vim.lsp.buf.implementation, "Goto Implementation")
+        map("<leader>D", vim.lsp.buf.type_definition, "Type Definition")
         map("gD", vim.lsp.buf.declaration, "Goto Declaration")
 
-        -- Symbols
-        map("<leader>ds", require("telescope.builtin").lsp_document_symbols, "Document Symbols")
-        map("<leader>ws", require("telescope.builtin").lsp_dynamic_workspace_symbols, "Workspace Symbols")
-
-        -- Actions
         map("<leader>rn", vim.lsp.buf.rename, "Rename")
         map("<leader>ca", vim.lsp.buf.code_action, "Code Action")
         map("K", vim.lsp.buf.hover, "Hover Documentation")
 
-        -- Diagnostics
-        map("<leader>b", vim.diagnostic.open_float, "Show line diagnostics")
-        map("<C-]>", vim.diagnostic.goto_prev, "Go to previous diagnostic")
-        map("<C-[>", vim.diagnostic.goto_next, "Go to next diagnostic")
+        -- Fixed diagnostic keymaps
+        map("<leader>d", vim.diagnostic.open_float, "Show line diagnostics")
+        map("[d", vim.diagnostic.goto_prev, "Go to previous diagnostic")
+        map("]d", vim.diagnostic.goto_next, "Go to next diagnostic")
         map("<leader>q", vim.diagnostic.setloclist, "Open diagnostics list")
       end,
     })

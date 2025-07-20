@@ -4,33 +4,22 @@ return {
     "nvim-lua/plenary.nvim",
     "hrsh7th/nvim-cmp",
   },
+  event = 'BufEnter',
   config = function()
-    local ok, codeium = pcall(require, "codeium")
-    if not ok then return end
+    require("codeium").setup({})
+    -- Disable default keybindings
+    vim.g.codeium_disable_bindings = 1
 
-    codeium.setup({ enable_chat = true })
+    -- Set custom keybindings
+    vim.keymap.set('i', '<C-g>', function() return vim.fn['codeium#Accept']() end, { expr = true, silent = true })
+    vim.keymap.set('i', '<C-]>', function() return vim.fn['codeium#CycleCompletions'](1) end,
+      { expr = true, silent = true })
+    vim.keymap.set('i', '<C-x>', function() return vim.fn['codeium#Clear']() end, { expr = true, silent = true })
 
-    local keymap = vim.keymap.set
-
-    if codeium.accept then
-      keymap("i", "<C-g>", codeium.accept, { desc = "Accept Codeium Suggestion" })
-    end
-
-    if codeium.cycle_completions then
-      keymap("i", "<C-]>", function() codeium.cycle_completions(1) end, { desc = "Next Suggestion" })
-      keymap("i", "<C-[>", function() codeium.cycle_completions(-1) end, { desc = "Prev Suggestion" })
-    end
-
-    if codeium.clear then
-      keymap("i", "<C-c>", codeium.clear, { desc = "Clear Codeium" })
-    end
-
-    if codeium.complete then
-      keymap("i", "<C-\\>", codeium.complete, { desc = "Trigger Codeium" })
-    end
-
-    if codeium.chat then
-      keymap("n", "<leader>cc", codeium.chat, { desc = "Open Codeium Chat" })
-    end
-  end,
+    -- Enable/disable keybindings
+    vim.keymap.set('n', '<leader>ce', function() return vim.fn['codeium#Disable']() end,
+      { expr = true, desc = 'Disable Codeium' })
+    vim.keymap.set('n', '<leader>cd', function() return vim.fn['codeium#Enable']() end,
+      { expr = true, desc = 'Enable Codeium' })
+  end
 }

@@ -20,50 +20,24 @@ return {
     "windwp/nvim-autopairs",
     config = function()
       require("nvim-autopairs").setup({})
-      local cmp_autopairs = require("nvim-autopairs.completion.cmp")
-      local cmp = require("cmp")
-      cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done())
+      -- REMOVED nvim-cmp integration since we use blink.cmp
     end,
   },
 
-  -- Comments
+
+  -- Comments - FIXED keymaps
   {
     'numToStr/Comment.nvim',
-
     event = { "BufReadPre", "BufNewFile" },
     config = function()
-      require('Comment').setup({
-        -- Add a space b/w comment and the line
-        padding = true,
-        -- Whether the cursor should stay at its position
-        sticky = true,
-        -- Lines to be ignored while (un)comment
-        ignore = nil,
-        -- LHS of toggle mappings in NORMAL mode
-        toggler = {
-          line = '<leader>/', -- Line-comment toggle keymap
-          block = '<leader>?', -- Block-comment toggle keymap
-        },
-        -- LHS of operator-pending mappings in NORMAL and VISUAL mode
-        opleader = {
-          line = '<leader>/', -- Line-comment keymap
-          block = '<leader>?', -- Block-comment keymap
-        },
-        -- LHS of extra mappings
-        extra = {
-          above = '<leader>cO', -- Add comment on the line above
-          below = '<leader>co', -- Add comment on the line below
-          eol = '<leader>cA', -- Add comment at the end of line
-        },
-        -- Enable keybindings
-        -- NOTE: If given `false` then the plugin won't create any mappings
-        mappings = {
-          -- Operator-pending mapping; `gcc` `gbc` `gc[count]{motion}` `gb[count]{motion}`
-          basic = false, -- Disable default basic mappings to avoid overlaps
-          -- Extra mapping; `gco`, `gcO`, `gcA`
-          extra = false, -- Disable default extra mappings to avoid overlaps
-        },
-      })
+      require('Comment').setup()
+
+      -- Set up keymaps manually
+      local keymap = vim.keymap.set
+      keymap("n", "<leader>/", "<Plug>(comment_toggle_linewise_current)", { desc = "Toggle comment" })
+      keymap("v", "<leader>/", "<Plug>(comment_toggle_linewise_visual)", { desc = "Toggle comment" })
+      keymap("n", "<leader>?", "<Plug>(comment_toggle_blockwise_current)", { desc = "Toggle block comment" })
+      keymap("v", "<leader>?", "<Plug>(comment_toggle_blockwise_visual)", { desc = "Toggle block comment" })
     end,
   },
   -- Indent guides
