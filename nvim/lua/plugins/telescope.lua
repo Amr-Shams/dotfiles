@@ -38,7 +38,6 @@ return {
     keymap("n", "<leader>sw", builtin.grep_string, { desc = "Search current Word" })
     keymap("n", "<leader>sg", builtin.live_grep, { desc = "Search by Grep" })
     keymap("n", "<leader>sd", builtin.diagnostics, { desc = "Search Diagnostics" })
-    keymap("n", "<leader>sr", builtin.resume, { desc = "Search Resume" })
     keymap("n", "<leader>s.", builtin.oldfiles, { desc = "Search Recent Files" })
     keymap("n", "<leader><leader>", builtin.buffers, { desc = "Find existing buffers" })
   end,

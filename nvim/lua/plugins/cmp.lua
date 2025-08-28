@@ -7,6 +7,8 @@ return {
     "hrsh7th/cmp-nvim-lsp",
     "saadparwaiz1/cmp_luasnip",
     "Exafunction/codeium.nvim",
+    "L3MON4D3/luasnip",
+    "rafamadriz/friendly-snippets",
   },
   config = function()
     local cmp = require("cmp")

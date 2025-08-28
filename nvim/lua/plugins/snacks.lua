@@ -32,16 +32,19 @@ return {
 
   keys = {
     -- Define keymaps properly
-    { "<leader>un", function() Snacks.notifier.hide() end,      desc = "Dismiss All Notifications" },
-    { "<leader>bd", function() Snacks.bufdelete() end,          desc = "Delete Buffer" },
-    { "<leader>gg", function() Snacks.lazygit() end,            desc = "Lazygit" },
-    { "<leader>gb", function() Snacks.git.blame_line() end,     desc = "Git Blame Line" },
-    { "<leader>gB", function() Snacks.gitbrowse() end,          desc = "Git Browse" },
-    { "<leader>gf", function() Snacks.lazygit.log_file() end,   desc = "Lazygit Current File History" },
-    { "<leader>gl", function() Snacks.lazygit.log() end,        desc = "Lazygit Log (cwd)" },
-    { "<leader>cR", function() Snacks.rename.rename_file() end, desc = "Rename File" },
-    { "<c-/>",      function() Snacks.terminal() end,           desc = "Terminal" },
-    { "<c-_>",      function() Snacks.terminal() end,           desc = "Terminal (alternative)" },
+    { "<leader>un", function() Snacks.notifier.hide() end,              desc = "Dismiss All Notifications" },
+    { "<leader>bd", function() Snacks.bufdelete() end,                  desc = "Delete Buffer" },
+    { "<leader>gg", function()
+      print(vim.o.shell)
+      Snacks.lazygit()
+    end,                                                                desc = "Lazygit" },
+    { "<leader>gb", function() Snacks.git.blame_line() end,             desc = "Git Blame Line" },
+    { "<leader>gB", function() Snacks.gitbrowse() end,                  desc = "Git Browse" },
+    { "<leader>gf", function() Snacks.lazygit.log_file() end,           desc = "Lazygit Current File History" },
+    { "<leader>gl", function() Snacks.lazygit.log() end,                desc = "Lazygit Log (cwd)" },
+    { "<leader>cR", function() Snacks.rename.rename_file() end,         desc = "Rename File" },
+    { "<c-/>",      function() Snacks.terminal() end,                   desc = "Terminal" },
+    { "<c-_>",      function() Snacks.terminal() end,                   desc = "Terminal (alternative)" },
   },
 
   config = function(_, opts)
