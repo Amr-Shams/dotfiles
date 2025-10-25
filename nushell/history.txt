@@ -1,0 +1,289 @@
+ls
+clear
+ls
+git clone https://github.com/ghostty-org/ghostty.git
+cd ghostty/
+ls
+git branch -a
+git checkout 1.2.x
+git status
+git branch -a
+git checkout main
+git branch -d 1.2.x
+git branch -a
+git checkout -b 1.2.x origin/1.2.x
+sudo zig build -p /usr -Doptimize=ReleaseFast
+sudo dnf install gtk4-blueprint-compiler
+blueprint-compiler --version
+sudo dnf install git meson ninja pkg-config gcc clang glib2-devel gtk4-devel
+cd ..
+git clone https://gitlab.gnome.org/GNOME/blueprint.git<\n>cd blueprint<\n>
+sudo dnf install snapd
+sudo ln -s /var/lib/snapd/snap /snap
+sudo snap install gtk4-blueprint-compiler
+snap
+sudo snap install gtk4-blueprint-compiler
+sudo snap install blueprint-compiler --classic
+cd ghostty/
+git status
+sudo zig build -p /usr -Doptimize=ReleaseFast
+sudo snap install git meson ninja pkg-config gcc clang glib2-devel gtk4-devel
+sudo dnf install git meson ninja pkg-config gcc clang glib2-devel gtk4-devel
+blueprint-compiler --version
+sudo snap install blueprint-compiler --classic
+snap help refresh
+blueprint-compiler --version
+ls /snap/bin/blueprint-compiler
+$env.PATH = "/snap/bin:" + $env.PATH
+which nu
+$env.PATH = ["/snap/bin"] + $env.PATH
+$env.PATH = ($env.PATH | prepend "/snap/bin")
+which blue-print
+which blueprint-compiler
+sudo zig build -p /usr -Doptimize=ReleaseFast
+blueprint-compiler --version
+clear
+which blueprint-compiler
+blueprint-compiler --version
+sudo snap remove blueprint-compiler<\n>sudo snap install blueprint-compiler --classic<\n>
+snap list blueprint-compiler<\n>blueprint-compiler --version<\n>
+$env.PATH = ($env.PATH | prepend "/snap/bin")<\n>which blueprint-compiler<\n>
+blueprint-compiler --version
+sudo snap remove blueprint-compiler<\n>sudo rm -rf /var/lib/snapd/snaps/blueprint-compiler_*.snap<\n>sudo snap install blueprint-compiler --classic<\n>
+wget https://github.com/elementary/blueprint-compiler/releases/download/0.16.0/blueprint-compiler-0.16.0-linux-x86_64.tar.gz<\n>tar xzf blueprint-compiler-0.16.0-linux-x86_64.tar.gz<\n>sudo mv blueprint-compiler /usr/local/bin/<\n>blueprint-compiler --version<\n>
+wget http://github.com/elementary/blueprint-compiler/releases/download/0.16.0/blueprint-compiler-0.16.0-linux-x86_64.tar.gz<\n>tar xzf blueprint-compiler-0.16.0-linux-x86_64.tar.gz<\n>sudo mv blueprint-compiler /usr/local/bin/<\n>blueprint-compiler --version<\n>
+sudo dnf install wget
+wget http://github.com/elementary/blueprint-compiler/releases/download/0.16.0/blueprint-compiler-0.16.0-linux-x86_64.tar.gz<\n>tar xzf blueprint-compiler-0.16.0-linux-x86_64.tar.gz<\n>sudo mv blueprint-compiler /usr/local/bin/<\n>blueprint-compiler --version<\n>
+wget https://github.com/elementary/blueprint-compiler/releases/download/0.16.0/blueprint-compiler-0.16.0-linux-x86_64.tar.gz<\n>tar xzf blueprint-compiler-0.16.0-linux-x86_64.tar.gz<\n>sudo mv blueprint-compiler /usr/local/bin/<\n>blueprint-compiler --version<\n>
+cd ..
+git clone https://gitlab.gnome.org/GNOME/blueprint-compiler.git
+cd blueprint-compiler/
+git status
+git branch -a
+meson setup build --prefix=/usr
+ninja -C build
+sudo ninja -C build install
+blueprint-compiler --version
+ls
+sudo snap remove blueprint-compiler
+blueprint-compiler --version
+ninja -C build
+sudo ninja -C build install
+blueprint-compiler --version
+sudo dnf install python3-gobject python3-gobject-base
+sudo dnf install gobject-introspection-devel
+python3 -c "import gi; print(gi.__version__)"
+blueprint-compiler --version
+cd ..
+cd ghostty/
+sudo zig build -p /usr -Doptimize=ReleaseFast
+sudo dnf install gtk4-layer-shell-devel
+ls /usr/lib64/libgtk4-layer-shell-0.so
+sudo zig build -p /usr -Doptimize=ReleaseFast
+ls
+clear
+nvim ~/.config/ghostty/config
+ghostty
+exit
+ghostty 
+ls
+clear
+nvim ~/.config/ghostty/config
+ghostty +list-font
+ghostty +list-fonts
+cler
+clear
+ls
+clear
+ghostty +list-fonts
+nvim ~/.config/ghostty/config
+exit
+ls
+clear
+ls
+clear
+ls
+cd ~
+ls
+ssh 100.123.129.85
+ls
+clear
+ls
+clear
+ls
+clear
+nvim 
+ls
+nvim ./.config/ghostty/
+cd ./.config/
+ls
+mkdir nvim 
+rm nvim 
+git clone git@github.com:Amr-Shams/dotfiles.git
+git clone https://github.com/Amr-Shams/dotfiles.git
+cd nvim 
+ls
+cd dotfiles/
+ls
+mv nvim/ ../nvim 
+ls
+cd ..
+ls
+ls -a dotfiles/
+mv dotfiles/* .
+ls
+ls -a
+rm dotfiles/
+ls
+nvim 
+nvim --version
+cd ./.config/nvim/lua/
+git clone --filter=blob:none https://github.com/folke/lazy.nvim.git --branch=stable ~/.config/nvim/lua/lazy
+nvim .
+:qa
+clear
+nvim
+nvim 
+sudo dnf install golang -y
+$env.PATH = ($env.PATH | append "/usr/bin")
+use ~/.config/nushell/env.nu
+which go
+nvim 
+nvim . 
+nvim 
+c;ear
+\clear
+clear
+ls
+clear
+ls
+clea
+clear
+nvim blueprint-compiler/
+clear
+echo "            "
+clear
+echo "      "
+nvim 
+nvim . 
+ls
+git clone https://github.com/Amr-Shams/badger.git
+which ghostty
+nvim /usr/sbin/ghostty
+ls /usr/sbin/
+ls /usr/sbin/ghostty
+ls -a /usr/sbin/ghostty
+ls  /usr/sbin/ghostty --help
+ls  /usr/sbin/ghostty
+mkdir projects
+cd projects/
+ls
+git clone https://github.com/Amr-Shams/badger.git
+cd badger/
+git remote add upstream git@github.com:hypermodeinc/badger.git
+git remote set-url --push upstream no_push
+git fetch upstream<\n>git checkout master<\n>git rebase upstream/master
+ssh-keygen -t ed25519 -C "amr.shams2015.as@gmail.com"
+eval "$(ssh-agent -s)"<\n>ssh-add ~/.ssh/id_ed25519<\n>
+eval (ssh-agent -s | str trim)
+ssh-agent -s
+ssh-agent -s | str trim
+ssh-add ~/.ssh/id_ed25519
+let agent_output = (ssh-agent -s | lines)
+let-env SSH_AUTH_SOCK = ($agent_output | where $it =~ 'SSH_AUTH_SOCK' | first | split '=' | get 1 | str replace '; export SSH_AUTH_SOCK;' '' | str trim)<\n>let-env SSH_AGENT_PID = ($agent_output | where $it =~ 'SSH_AGENT_PID' | first | split '=' | get 1 | str replace '; export SSH_AGENT_PID;' '' | str trim)<\n>
+<\n>let ssh_sock_line = ($agent_output | where $it =~ 'SSH_AUTH_SOCK' | first)<\n>let ssh_pid_line = ($agent_output | where $it =~ 'SSH_AGENT_PID' | first)
+let ssh_sock_value = ($ssh_sock_line | split '=' | get 1 | str replace '; export SSH_AUTH_SOCK;' '' | str trim)<\n>let ssh_pid_value = ($ssh_pid_line | split '=' | get 1 | str replace '; export SSH_AGENT_PID;' '' | str trim)<\n>
+<\n>let ssh_sock_value = ($ssh_sock_line | split row '=' | get 1 | str replace '; export SSH_AUTH_SOCK;' '' | str trim)<\n>let ssh_pid_value = ($ssh_pid_line | split row '=' | get 1 | str replace '; export SSH_AGENT_PID;' '' | str trim)<\n>
+<\n>let-env SSH_AUTH_SOCK = $ssh_sock_value<\n>let-env SSH_AGENT_PID = $ssh_pid_value
+env set SSH_AUTH_SOCK $ssh_sock_value<\n>env set SSH_AGENT_PID $ssh_pid_value
+do {<\n>    let-env SSH_AUTH_SOCK = $ssh_sock_value<\n>    let-env SSH_AGENT_PID = $ssh_pid_value<\n>}
+which nu
+nu --version
+$env.SSH_AUTH_SOCK = $ssh_sock_value<\n>$env.SSH_AGENT_PID = $ssh_pid_value
+ssh-add ~/.ssh/id_ed25519
+echo $env.SSH_AUTH_SOCK<\n>echo $env.SSH_AGENT_PID<\n>ssh-add -l<\n>ssh -T git@github.com<\n>
+ssh -vT git@github.com
+ssh-keygen -lf ~/.ssh/id_ed25519.pub
+cat ~/.ssh/id_ed25519.pub
+exit
+ls
+clear
+ls
+cat ~/.ssh/id_ed25519.pub
+ssh -T git@github.com
+npx
+# Using npx (no installation required)<\n>npx https://github.com/google-gemini/gemini-cli
+clear
+$env.config.color_config | sort
+$env.config.edit_mod=vi
+nu --version
+open $nu.config-path
+nvim $nu.config-path
+source $nu.config-path
+nvim $nu.config-path
+source $nu.config-path
+$env.config.color_config
+nvim $nu.config-path
+ls
+nvim $nu.config-path
+source $nu.config-path
+nvim $nu.config-path
+source $nu.config-path
+nvim $nu.config-path
+source $nu.config-path
+nvim $nu.config-path
+source $nu.config-path
+nvim $nu.config-path
+source $nu.config-path
+nvim $nu.config-path
+source $nu.config-path
+nvim $nu.config-path
+source $nu.config-path
+nvim $nu.config-path
+source $nu.config-path
+ls
+nvim .bash_history
+nvim $nu.config-path
+source $nu.config-path
+nvim $nu.config-path
+source $nu.config-path
+nvim $nu.config-path
+source $nu.config-path
+nvim $nu.config-path
+source $nu.config-path
+nvim $nu.config-path
+source $nu.config-path
+nvim $nu.config-path
+source $nu.config-path
+nvim $nu.config-path
+source $nu.config-path
+nvim $nu.config-path
+source $nu.config-path
+nvim . 
+clear
+nvim $nu.config-path
+source $nu.config-path
+nvim $nu.config-path
+source $nu.config-path
+ls
+clear
+ls
+nvim $nu.config-path
+source $nu.config-path
+ls
+clear
+vi
+ls
+which $nu.config-path
+where $nu.config-path
+echo $nu.config-path
+cd ~/.config/
+ls
+git add nushell/
+nvim .gitignore
+git status
+git add nushell/
+git add . 
+git commit -m "added the new nushell config"
+git config --global user.email "amr.shams2015.as@gmail.com<\n>"
+git config --global user.name "Amr-Shams"

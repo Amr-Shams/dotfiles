@@ -2,4 +2,6 @@
 !.gitignore
 !nvim/
 !nvim/**
+!nushell/
+!nushell/**
 *un*
