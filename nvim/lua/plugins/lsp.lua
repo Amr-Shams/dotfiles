@@ -32,12 +32,21 @@ return {
     -- Setup diagnostic signs
     local signs = { Error = "󰅚 ", Warn = "󰀪 ", Hint = "󰌶 ", Info = " " }
     for type, icon in pairs(signs) do
-      local hl = "DiagnosticSign" .. type
-      vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
+      vim.diagnostic.config({
+        virtual_text = true,
+        signs = true,
+        underline = true,
+        update_in_insert = false,
+        severity_sort = true,
+      })
     end
 
     -- Setup mason first
-    require("mason").setup()
+    require("mason").setup({
+      ui = { check_outdated_packages_on_open = false },
+    })
+
+
 
     -- Setup mason-lspconfig with the new API (remove automatic_enable)
     require("mason-lspconfig").setup({
@@ -59,6 +68,8 @@ return {
         "eslint",      -- Linting for JS/TS
         "jsonls",      -- JSON
         "sqls",
+        "jdtls",       -- Java
+        "ocamllsp",    -- OCaml
       }
       ,
       automatic_installation = true,
@@ -86,6 +97,8 @@ return {
             },
           })
         end,
+
+        ["jdtls"] = function() end,
       },
     })
 
