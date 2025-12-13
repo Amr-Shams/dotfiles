@@ -364,3 +364,4 @@ $env.PROMPT_INDICATOR = $"(ansi cyan)❯(ansi reset) "
 
 # Multiline prompt indicator
 $env.PROMPT_MULTILINE_INDICATOR = $"(ansi blue_bold)::: (ansi reset)"
+$env.config.show_banner = false
