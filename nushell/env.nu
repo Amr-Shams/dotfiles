@@ -36,6 +36,11 @@ $env.PATH = (
     | str join (char esep)
 )
 # Set OPAM environment variables in Nu
+$env.DISPLAY = ":0"
+$env.WAYLAND_DISPLAY = "wayland-0"
+$env.GDK_BACKEND = "wayland"
+
+$env.PATH_TO_FX = "path/to/javafx-sdk-25/lib"
 $env.OPAM_LAST_ENV = "/home/amraly/.opam/.last-env/env-b5dd01d682adcb41baa5f120b9a1830d-0"
 $env.OPAM_SWITCH_PREFIX = "/home/amraly/.opam/default"
 $env.OCAMLTOP_INCLUDE_PATH = "/home/amraly/.opam/default/lib/toplevel"
@@ -52,12 +57,11 @@ $env.PATH = (
     | str join (char esep)
 )
 
-let ip = (open /etc/resolv.conf
-    | lines
-    | where $it =~ "nameserver"
-    | str replace "nameserver " ""
-    | str trim
-    | get 0)
-
-$env.DISPLAY = $"($ip):0"
+# let ip = (open /etc/resolv.conf
+#     | lines
+#     | where $it =~ "nameserver"
+#     | str replace "nameserver " ""
+#     | str trim
+#     | get 0)
+#
 
