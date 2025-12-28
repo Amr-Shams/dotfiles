@@ -105,6 +105,7 @@ return {
     -- LSP keymaps using LspAttach autocmd
     vim.api.nvim_create_autocmd("LspAttach", {
       callback = function(event)
+        local client = vim.lsp.get_client_by_id(event.data.client_id)
         local map = function(keys, func, desc)
           vim.keymap.set("n", keys, func, { buffer = event.buf, desc = "LSP: " .. desc })
         end
@@ -124,6 +125,17 @@ return {
         map("[d", vim.diagnostic.goto_prev, "Go to previous diagnostic")
         map("]d", vim.diagnostic.goto_next, "Go to next diagnostic")
         map("<leader>q", vim.diagnostic.setloclist, "Open diagnostics list")
+
+        -- Format on save
+        if client and client.supports_method("textDocument/formatting") then
+          vim.api.nvim_create_autocmd("BufWritePre", {
+            group = vim.api.nvim_create_augroup("LspFormatOnSave", { clear = true }),
+            buffer = event.buf,
+            callback = function()
+              vim.lsp.buf.format({ async = false, timeout_ms = 10000 })
+            end,
+          })
+        end
       end,
     })
   end,
