@@ -70,6 +70,8 @@ return {
         "sqls",
         "jdtls",       -- Java
         "ocamllsp",    -- OCaml
+        "lemminx",     -- XML
+        "dotls",       -- Dotenv
       }
       ,
       automatic_installation = true,
@@ -103,6 +105,9 @@ return {
     })
 
     -- LSP keymaps using LspAttach autocmd
+    -- Create augroup for formatting once
+    local format_augroup = vim.api.nvim_create_augroup("LspFormatOnSave", { clear = true })
+
     vim.api.nvim_create_autocmd("LspAttach", {
       callback = function(event)
         local client = vim.lsp.get_client_by_id(event.data.client_id)
@@ -129,7 +134,7 @@ return {
         -- Format on save
         if client and client.supports_method("textDocument/formatting") then
           vim.api.nvim_create_autocmd("BufWritePre", {
-            group = vim.api.nvim_create_augroup("LspFormatOnSave", { clear = true }),
+            group = format_augroup,
             buffer = event.buf,
             callback = function()
               vim.lsp.buf.format({ async = false, timeout_ms = 10000 })
