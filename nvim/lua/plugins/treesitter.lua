@@ -25,6 +25,7 @@ return {
           "c",
           "cpp",
           "clojure",
+          "java",
         },
         highlight = {
           enable = true,

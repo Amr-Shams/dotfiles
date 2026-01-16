@@ -12,7 +12,7 @@ return {
     notifier = { enabled = true },
     quickfile = { enabled = true },
     scroll = { enabled = true },
-    statuscolumn = { enabled = true },
+    statuscolumn = { enabled = false },
     words = { enabled = true },
 
     -- Git features (YOU USE THESE)
