@@ -17,9 +17,6 @@ return {
     vim.keymap.set('i', '<C-x>', function() return vim.fn['codeium#Clear']() end, { expr = true, silent = true })
 
     -- Enable/disable keybindings
-    vim.keymap.set('n', '<leader>ce', function() return vim.fn['codeium#Disable']() end,
-      { expr = true, desc = 'Disable Codeium' })
-    vim.keymap.set('n', '<leader>cd', function() return vim.fn['codeium#Enable']() end,
-      { expr = true, desc = 'Enable Codeium' })
+    vim.keymap.set('n', '<leader>ct', '<cmd>CodeiumToggle<cr>', { desc = 'Toggle Codeium' })
   end
 }

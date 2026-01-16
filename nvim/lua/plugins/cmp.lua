@@ -33,5 +33,29 @@ return {
         { name = "path" },
       }),
     })
+
+    vim.api.nvim_create_user_command("CodeiumToggle", function()
+      local config = cmp.get_config()
+      local sources = config.sources
+      local new_sources = {}
+      local found = false
+
+      for _, source in ipairs(sources) do
+        if source.name == "codeium" then
+          found = true
+        else
+          table.insert(new_sources, source)
+        end
+      end
+
+      if not found then
+        table.insert(new_sources, 1, { name = "codeium" })
+        print("Codeium enabled")
+      else
+        print("Codeium disabled")
+      end
+
+      cmp.setup({ sources = new_sources })
+    end, {})
   end,
 }
