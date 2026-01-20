@@ -3,6 +3,9 @@ return {
   ft = "java",
   dependencies = { "neovim/nvim-lspconfig" },
   config = function()
+    if vim.g.jdtls_enabled == nil then
+      vim.g.jdtls_enabled = true
+    end
     local jdtls = require('jdtls')
 
     local capabilities = vim.lsp.protocol.make_client_capabilities()
@@ -12,6 +15,9 @@ return {
     end
 
     local function attach_jdtls()
+      if not vim.g.jdtls_enabled then
+        return
+      end
       local bufnr = vim.api.nvim_get_current_buf()
 
       -- Check if buffer is valid and is a Java file
@@ -94,5 +100,19 @@ return {
       pattern = "java",
       callback = attach_jdtls,
     })
+
+    vim.keymap.set('n', '<leader>tj', function()
+      vim.g.jdtls_enabled = not vim.g.jdtls_enabled
+      if vim.g.jdtls_enabled then
+        vim.notify("JDTLS Enabled", vim.log.levels.INFO)
+        attach_jdtls()
+      else
+        vim.notify("JDTLS Disabled", vim.log.levels.INFO)
+        local clients = vim.lsp.get_clients({ name = 'jdtls' })
+        for _, client in ipairs(clients) do
+          client.stop()
+        end
+      end
+    end, { desc = "Toggle JDTLS" })
   end,
 }
