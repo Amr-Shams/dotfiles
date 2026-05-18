@@ -32,6 +32,11 @@ $env.PATH = (
     | append ($nu.home-path | path join "go/bin")
     | append "/mnt/c/Windows"
     | append "/mnt/c/Windows/System32"
+    | append "/home/amraly/.cargo/bin"
+    | append "/home/amraly/.local/bin"
+    | append "/home/amraly/.nvm"
+    | append "/home/amraly/.opencode/bin"
+    | append "/opt/jaxws/bin"
     | uniq
     | str join (char esep)
 )
@@ -40,7 +45,7 @@ $env.DISPLAY = ":0"
 $env.WAYLAND_DISPLAY = "wayland-0"
 $env.GDK_BACKEND = "wayland"
 
-$env.PATH_TO_FX = "path/to/javafx-sdk-25/lib"
+$env.JAVA_HOME = "/usr/lib/jvm/java-21-openjdk"
 $env.OPAM_LAST_ENV = "/home/amraly/.opam/.last-env/env-b5dd01d682adcb41baa5f120b9a1830d-0"
 $env.OPAM_SWITCH_PREFIX = "/home/amraly/.opam/default"
 $env.OCAMLTOP_INCLUDE_PATH = "/home/amraly/.opam/default/lib/toplevel"

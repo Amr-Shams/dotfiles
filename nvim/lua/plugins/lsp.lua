@@ -66,6 +66,33 @@ return {
             },
           })
         end,
+        ["gopls"] = function()
+          require("lspconfig").gopls.setup({
+            capabilities = capabilities,
+            settings = {
+              gopls = {
+                memoryMode = "DegradeClosed",
+                directoryFilters = { "-vendor", "-node_modules", "-.git" },
+                analyses = {
+                  unusedparams = false,
+                  shadow = false,
+                },
+              },
+            },
+          })
+        end,
+        ["html"] = function()
+          require("lspconfig").html.setup({
+            capabilities = capabilities,
+            filetypes = { "html", "htmldjango", "jsp", "jspx", "twig" },
+          })
+        end,
+        ["lemminx"] = function()
+          require("lspconfig").lemminx.setup({
+            capabilities = capabilities,
+            filetypes = { "xml", "xsd", "xsl", "xslt", "svg", "pom", "maven" },
+          })
+        end,
         ["jdtls"] = function() end,
       },
     })

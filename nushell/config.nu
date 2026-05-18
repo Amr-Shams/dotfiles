@@ -344,6 +344,16 @@ $env.PROMPT_COMMAND = {||
     $"(ansi blue_bold)╭─(ansi cyan)[(ansi green)($path_segment)(ansi cyan)]($git_branch)\n(ansi blue_bold)╰─(ansi reset)"
 }
 
+def --wrapped nvm [...args] {
+  bash -lc $"nvm ($args | str join ' ')"
+}
+def --wrapped npm [...args] {
+  bash -lc $"npm ($args | str join ' ')"
+}
+def --wrapped node [...args] {
+  bash -lc $"node ($args | str join ' ')"
+}
+
 # Right prompt - shows time and last command duration
 $env.PROMPT_COMMAND_RIGHT = {||
     let last_exit = $env.LAST_EXIT_CODE
@@ -362,6 +372,8 @@ $env.PROMPT_INDICATOR_VI_INSERT = $"(ansi cyan)❯(ansi reset) "
 $env.PROMPT_INDICATOR_VI_NORMAL = $"(ansi blue)❮(ansi reset) "
 $env.PROMPT_INDICATOR = $"(ansi cyan)❯(ansi reset) "
 
+
 # Multiline prompt indicator
 $env.PROMPT_MULTILINE_INDICATOR = $"(ansi blue_bold)::: (ansi reset)"
 $env.config.show_banner = false
+source $"($nu.home-path)/.cargo/env.nu"

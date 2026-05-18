@@ -2,6 +2,16 @@
 local augroup = vim.api.nvim_create_augroup
 local autocmd = vim.api.nvim_create_autocmd
 
+vim.filetype.add({
+  extension = {
+    jsp = "jsp",
+    jspf = "jsp",
+    tag = "jsp",
+    tagf = "jsp",
+    tld = "xml",
+  },
+})
+
 -- Highlight on yank
 augroup("YankHighlight", { clear = true })
 autocmd("TextYankPost", {
@@ -34,4 +44,3 @@ autocmd("FileType", {
     vim.keymap.set("n", "q", "<cmd>close<cr>", { buffer = event.buf, silent = true })
   end,
 })
-

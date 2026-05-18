@@ -16,7 +16,21 @@ keymap("n", "<C-Right>", ":vertical resize +2<CR>", { desc = "Resize window righ
 -- Buffer navigation
 keymap("n", "<S-l>", ":bnext<CR>", { desc = "Next buffer" })
 keymap("n", "<S-h>", ":bprevious<CR>", { desc = "Previous buffer" })
-keymap("n", "<leader>bd", ":bdelete<CR>", { desc = "Delete buffer" })
+keymap("n", "<leader>bd", function()
+  local ok = pcall(vim.api.nvim_buf_delete, 0, { force = false })
+  if not ok then
+    vim.notify("Buffer has unsaved changes. Use <leader>bD to force close.", vim.log.levels.WARN)
+  end
+end, { desc = "Delete buffer" })
+keymap("n", "<leader>bD", function()
+  vim.api.nvim_buf_delete(0, { force = true })
+end, { desc = "Force delete buffer" })
+
+-- Tab navigation
+keymap("n", "<leader>tn", ":tabnext<CR>", { desc = "Next tab" })
+keymap("n", "<leader>tp", ":tabprevious<CR>", { desc = "Previous tab" })
+keymap("n", "<leader>to", ":tabnew<CR>", { desc = "New tab" })
+keymap("n", "<leader>tx", ":tabclose<CR>", { desc = "Close tab" })
 
 -- Stay in indent mode
 keymap("v", "<", "<gv", { desc = "Indent left" })

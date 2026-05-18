@@ -1,19 +1,4 @@
 return {
-  -- File explorer
-  {
-    "nvim-tree/nvim-tree.lua",
-    dependencies = "nvim-tree/nvim-web-devicons",
-    config = function()
-      require("nvim-tree").setup({
-        sort_by = "case_sensitive",
-        view = { width = 30 },
-        renderer = { group_empty = true },
-        filters = { dotfiles = false },
-      })
-      vim.keymap.set("n", "<leader>e", ":NvimTreeToggle<CR>", { desc = "Toggle file explorer" })
-    end,
-  },
-
   -- Status line
   {
     "nvim-lualine/lualine.nvim",
@@ -48,14 +33,6 @@ return {
       require("bufferline").setup({
         options = {
           diagnostics = "nvim_lsp",
-          offsets = {
-            {
-              filetype = "NvimTree",
-              text = "File Explorer",
-              text_align = "left",
-              separator = true,
-            },
-          },
         },
       })
     end,

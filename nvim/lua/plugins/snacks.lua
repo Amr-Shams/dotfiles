@@ -7,6 +7,7 @@ return {
     -- Core
     bigfile = { enabled = true },
     dashboard = { enabled = true },
+    explorer = { enabled = true },
     indent = { enabled = true },
     input = { enabled = true },
     notifier = { enabled = true },
@@ -23,6 +24,25 @@ return {
     -- Picker
     picker = {
       enabled = true,
+      sources = {
+        explorer = {
+          focus = "list",
+          layout = {
+            preset = "sidebar",
+            preview = false,
+            hidden = { "input" },
+          },
+          win = {
+            list = {
+              keys = {
+                ["s"] = "edit_split",
+                ["v"] = "edit_vsplit",
+                ["t"] = "tab",
+              },
+            },
+          },
+        },
+      },
       win = {
         input = {
           keys = {
@@ -42,8 +62,8 @@ return {
   },
 
   keys = {
+    { "<leader>e",  function() Snacks.explorer.open() end,     desc = "File Explorer" },
     { "<leader>un", function() Snacks.notifier.hide() end,      desc = "Dismiss Notifications" },
-    { "<leader>bd", function() Snacks.bufdelete() end,          desc = "Delete Buffer" },
 
     -- Git
     { "<leader>gg", function() Snacks.lazygit() end,            desc = "Lazygit" },
