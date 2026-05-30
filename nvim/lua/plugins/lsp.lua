@@ -45,7 +45,7 @@ return {
       ensure_installed = {
         "lua_ls", "pyright", "ts_ls", "rust_analyzer", "gopls", "clangd",
         "bashls", "clojure_lsp", "html", "cssls", "tailwindcss", "eslint",
-        "jsonls", "sqls", "jdtls", "ocamllsp", "lemminx", "dotls",
+        "jsonls", "sqls", "jdtls", "ocamllsp", "lemminx", "dotls", "kotlin_language_server",
       },
       automatic_installation = true,
       handlers = {

@@ -44,3 +44,14 @@ autocmd("FileType", {
     vim.keymap.set("n", "q", "<cmd>close<cr>", { buffer = event.buf, silent = true })
   end,
 })
+
+-- Enable wrap and linebreak for prose-like files
+augroup("AutoWrap", { clear = true })
+autocmd("FileType", {
+  group = "AutoWrap",
+  pattern = { "markdown", "jsp", "java", "text" },
+  callback = function()
+    vim.opt_local.wrap = true
+    vim.opt_local.linebreak = true
+  end,
+})
