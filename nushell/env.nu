@@ -28,39 +28,42 @@ $env.PATH = (
     | append "/usr/bin"
     | append "/sbin"
     | append "/bin"
-    | append ($nu.home-path | path join ".bun/bin")
-    | append ($nu.home-path | path join "go/bin")
+    | append ($nu.home-dir | path join ".bun/bin")
+    | append ($nu.home-dir | path join "go/bin")
+    | append ($nu.home-dir | path join ".npm-global/bin")
     | append "/mnt/c/Windows"
     | append "/mnt/c/Windows/System32"
-    | append "/home/amraly/.cargo/bin"
-    | append "/home/amraly/.local/bin"
-    | append "/home/amraly/.nvm"
-    | append "/home/amraly/.opencode/bin"
-    | append "/opt/jaxws/bin"
+    | append ($nu.home-dir | path join ".cargo/bin")
+    | append ($nu.home-dir | path join ".local/bin")
+    | append ($nu.home-dir | path join ".nvm")
+    | append ($nu.home-dir | path join ".opencode/bin")
     | uniq
     | str join (char esep)
-)
-# Set OPAM environment variables in Nu
-$env.DISPLAY = ":0"
-$env.WAYLAND_DISPLAY = "wayland-0"
-$env.GDK_BACKEND = "wayland"
+    )
+    # Set OPAM environment variables in Nu
+    $env.DISPLAY = ":0"
+    $env.WAYLAND_DISPLAY = "wayland-0"
+    $env.GDK_BACKEND = "wayland"
 
-$env.JAVA_HOME = "/usr/lib/jvm/java-21-openjdk"
-$env.OPAM_LAST_ENV = "/home/amraly/.opam/.last-env/env-b5dd01d682adcb41baa5f120b9a1830d-0"
-$env.OPAM_SWITCH_PREFIX = "/home/amraly/.opam/default"
-$env.OCAMLTOP_INCLUDE_PATH = "/home/amraly/.opam/default/lib/toplevel"
-$env.CAML_LD_LIBRARY_PATH = "/home/amraly/.opam/default/lib/stublibs:/home/amraly/.opam/default/lib/ocaml/stublibs:/home/amraly/.opam/default/lib/ocaml"
-$env.OCAML_TOPLEVEL_PATH = "/home/amraly/.opam/default/lib/toplevel"
-$env.MANPATH = ":/home/amraly/.opam/default/man"
+    $env.JAVA_HOME = "/usr/lib/jvm/java-21-openjdk"
+    $env.OPAM_LAST_ENV = ($nu.home-dir | path join ".opam/.last-env/env-b5dd01d682adcb41baa5f120b9a1830d-0")
+    $env.OPAM_SWITCH_PREFIX = ($nu.home-dir | path join ".opam/default")
+    $env.OCAMLTOP_INCLUDE_PATH = ($nu.home-dir | path join ".opam/default/lib/toplevel")
+    $env.CAML_LD_LIBRARY_PATH = (($nu.home-dir | path join ".opam/default/lib/stublibs") + ":" + ($nu.home-dir | path join ".opam/default/lib/ocaml/stublibs") + ":" + ($nu.home-dir | path join ".opam/default/lib/ocaml"))
+    $env.OCAML_TOPLEVEL_PATH = ($nu.home-dir | path join ".opam/default/lib/toplevel")
+    $env.MANPATH = (":" + ($nu.home-dir | path join ".opam/default/man"))
 
-# Update PATH to include OPAM bin first
-$env.PATH = (
+    # Update PATH to include OPAM bin first
+    $env.PATH = (
     $env.PATH
     | split row (char esep)
-    | prepend "/home/amraly/.opam/default/bin"
+    | prepend ($nu.home-dir | path join ".opam/default/bin")
     | uniq
     | str join (char esep)
 )
+  $env.SUDO_EDITOR = "nvim"
+  $env.EDITOR = "nvim"
+  $env.VISUAL = "nvim"
 
 # let ip = (open /etc/resolv.conf
 #     | lines

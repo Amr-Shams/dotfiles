@@ -4,7 +4,12 @@ return {
     event = { "BufReadPre", "BufNewFile" },
     build = ":TSUpdate",
     config = function()
-      local treesitter = require("nvim-treesitter.configs")
+      -- nvim-treesitter recently renamed 'configs' to 'config' or moved setup to the main module
+      local status, treesitter = pcall(require, "nvim-treesitter.configs")
+      if not status then
+        treesitter = require("nvim-treesitter")
+      end
+
       treesitter.setup({
         auto_install = true,
         ensure_installed = {

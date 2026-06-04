@@ -320,7 +320,7 @@ $env.config = {
 # Custom prompt configuration
 $env.PROMPT_COMMAND = {||
     let path_segment = (
-        if ($env.PWD == $nu.home-path) {
+        if ($env.PWD == $nu.home-dir) {
             "~"
         } else {
             ($env.PWD | path basename)
@@ -376,4 +376,5 @@ $env.PROMPT_INDICATOR = $"(ansi cyan)❯(ansi reset) "
 # Multiline prompt indicator
 $env.PROMPT_MULTILINE_INDICATOR = $"(ansi blue_bold)::: (ansi reset)"
 $env.config.show_banner = false
-source $"($nu.home-path)/.cargo/env.nu"
+alias se = sudoedit
+#source $"($nu.home-dir)/.cargo/env.nu"
